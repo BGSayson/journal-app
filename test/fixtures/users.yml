@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+# generate devise encrypted pw: RAILS_ENV=test bin/rails runner "puts Devise::Encryptor.digest(User, 'ENTER PASSWORD HERE')"
+#  encrypted_password: <%= Devise::Encryptor.digest(User, 'test') %>
+one: 
+  email: test@test.com
+  encrypted_password: "$2a$04$..rsSSsv8ROexbFnDspqWur6pCbmqznISGWhm3posaLieVc2bIZYC"
+  username: test
+
+# column: value
+two:
+  email: test@testtest.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'test') %>
+  username: testmeboi
+  
+# column: value
