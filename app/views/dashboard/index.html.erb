@@ -1,0 +1,9 @@
+Hello <%= current_user.username %>
+<% if current_user.categories.count != 0 %>
+<%= render partial: 'categories/category', collection: current_user.categories %>
+<% else %>
+<h2>wtf</h2>
+<% end %>
+<%= render partial: 'categories/new' %>
+
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %> 

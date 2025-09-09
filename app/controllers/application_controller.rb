@@ -13,4 +13,12 @@ class ApplicationController < ActionController::Base
     # devise_parameter_sanitizer.permit(:sign_up, keys: [ :username ])
     # devise_parameter_sanitizer.permit(:account_update, keys: [ :username ])
   end
+
+  def after_sign_in_path_for(resource)
+    dashboard_path # your path
+  end
+
+  def after_sign_up_path_for(resource)
+    root # your path
+  end
 end

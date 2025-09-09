@@ -6,13 +6,15 @@
 #
 # generate devise encrypted pw: RAILS_ENV=test bin/rails runner "puts Devise::Encryptor.digest(User, 'ENTER PASSWORD HERE')"
 #  encrypted_password: <%= Devise::Encryptor.digest(User, 'test') %>
-one: 
+me: 
+  id: 1
   email: test@test.com
   encrypted_password: "$2a$04$..rsSSsv8ROexbFnDspqWur6pCbmqznISGWhm3posaLieVc2bIZYC"
   username: test
 
-# column: value
+
 two:
+  id: 2
   email: test@testtest.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'test') %>
   username: testmeboi
