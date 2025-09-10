@@ -11,14 +11,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-    #   build_resource(sign_up_params)
-    # resource.save
+  #   build_resource(sign_up_params)
+  # resource.save
 
-    # if resource.persisted?
-    #   render json: resource, status: :created
-    # else
-    #   render json: resource.errors, status: :unprocessable_entity
-    # end
+  # if resource.persisted?
+  #   render json: resource, status: :created
+  # else
+  #   render json: resource.errors, status: :unprocessable_entity
+  # end
   # end
 
   # GET /resource/edit

@@ -9,8 +9,8 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     @user = users(:me)
     sign_in @user
   end
-    # test for checking if tasks belongs to a user
-    # assert_equal @user.id, tasks(:tasky).user_id
+  # test for checking if tasks belongs to a user
+  # assert_equal @user.id, tasks(:tasky).user_id
 
   test "should be able to get create path" do
     get dashboard_path
