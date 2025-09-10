@@ -7,13 +7,13 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
-  # test "should be able to create category from dashboard" do
-  #   get dashboard_path
-  #   assert_difference("Category.count", 1) do
-  #     post categories_path, params: { category: { title: "whattttttttttttt" } }
-  #   end
-  #   assert_response :found
-  # end
+  test "should be able to create category from dashboard" do
+    get dashboard_path
+    assert_difference("Category.count", 1) do
+      post categories_path, params: { category: { title: "whattttttttttttt" } }
+    end
+    assert_response :found
+  end
 
   test "should be able to get edit path" do
     cat = categories(:one)

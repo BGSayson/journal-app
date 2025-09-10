@@ -1,7 +1,7 @@
 <div>
-  <div class="flex"><h3><%= task.task_title %></h3> 
-    <%# <%= link_to "Edit", edit_category_path(category.id) %>
-    <%# <%= button_to "Delete", category_path(category.id), data:{ turbo_method: :delete, turbo_confirm: 'Are you sure?' }, method: :delete %> 
+  <div class="flex"><h3><%= task.task_title %></h3> <%= task.created_at.localtime.to_formatted_s(:long) %>
+    <div><%= link_to "Edit", edit_category_task_path(category_id, task.id), locals: { task_id: task.id } %></div>
+    <div><%= button_to "Delete", category_task_path(category_id, task.id), data:{ turbo_method: :delete, turbo_confirm: 'Are you sure?' }, method: :delete %> </div>
     <div> <%= task.task_body %></div>
   </div>
 </div>

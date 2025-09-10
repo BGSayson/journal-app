@@ -2,7 +2,7 @@
   <div class="flex"><h3><%= category.title %></h3> 
     <%= link_to "Edit", edit_category_path(category.id) %>
     <%= button_to "Delete", category_path(category.id), data:{ turbo_method: :delete,   turbo_confirm: 'Are you sure?' }, method: :delete %>
-    <%= render partial: 'tasks/task', collection: category.tasks %>
-    <%= render partial: 'tasks/new' %>
+    <%= render partial: 'tasks/task', collection: category.tasks, locals: { category_id: category.id } %>
+    <%= render partial: 'tasks/new', locals: { category_id: category.id } %>
   </div>
 </div>
