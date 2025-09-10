@@ -1,0 +1,5 @@
+<%= form_with scope: :task, url: category_tasks_path(category), local: true do |f| %>
+
+<%= render 'tasks/shared/form', f: f %>
+
+<% end %>
