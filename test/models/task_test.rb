@@ -9,7 +9,7 @@ class TaskTest < ActiveSupport::TestCase
     user = users(:me)
     # cat = categories(:one)
 
-    tusky = user.tasks.create!(task_title: tasks(:tasky).task_title, task_body: tasks(:tasky).task_body,category: tasks(:tasky).category )
+    tusky = user.tasks.create!(task_title: tasks(:tasky).task_title, task_body: tasks(:tasky).task_body, category: tasks(:tasky).category)
 
     assert tusky.valid?, "Title and body cannot be blank"
   end
