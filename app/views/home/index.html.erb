@@ -1,8 +1,15 @@
-Hello World
-<% if user_signed_in? %> 
- <div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
-  <%= button_to "Sign in", new_user_session_path, method: :get %> 
-  <%= link_to 'Sign Up', new_user_registration_path %>
-<% end %>
+<div class="flex flex-col text-[3rem] items-center justify-center font-[Sora] bg-gradient-to-bl from-orange-400 to-amber-200 h-[100vh] m-0 mt-auto w-full gap-4 box-border">
+  <div class="text-[#FFFFFF] text-[4rem] font-bold">Welcome to Kronicle</div>
+  <div class="text-[#FFFFFF] text-[1.3rem] font-bold">Manage and monitor your tasks easily.</div>
+  <div class="flex flex-col items-center justify-center">
+    <% if user_signed_in? %> 
+    <div> Welcome <%= current_user.email %> </div> 
+      <div class="flex flex-col items-center justify-center">
+      <div class="cursor-pointer" ><%= link_to "Head to dashboard", dashboard_path, class: "hover:text-white hover:underline hover:cursor-pointer " %></div>
+      <div class="" ><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "hover:text-white hover:underline hover:cursor-pointer " %> </div>
+      </div>
+    <% else %>
+      <div class="cursor-pointer" ><%= button_to "Enter", new_user_session_path, method: :get, class: "hover:text-white hover:underline hover:cursor-pointer " %> </div>
+    <% end %> 
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="flex flex-col text-[2rem] items-center justify-center font-[Manrope] bg-gradient-to-bl from-orange-400 to-amber-200 w-full min-h-screen">
+  <div class="flex flex-col justify-center">
+    <div class="flex flex-col items-center justify-center bg-white rounded-[5px] p-2">
+      <div class="font-bold">User information:</div>
+      <div class="flex items-end justify-start w-full gap-1">
+        <div class="font-bold">Username:</div>
+        <div class="flex items-end p-1 justify-center"><%= current_user.username %></div>
+      </div>
+      <div class="flex items-end justify-start w-full gap-1">
+      <div class="font-bold">Email: </div> 
+        <div class="flex items-end p-1 justify-center"><%= current_user.email %></div>
+      </div>
+      <div class="flex items-end justify-start w-full gap-1">
+        <div class="font-bold">Password: </div>
+        <div class="flex items-end p-1 justify-center"><input type="password" value="ungabunga" disabled></div>
+      </div>
+    </div>
+  </div>
+    
+    <div class="bg-white flex flex-col items-center justify-center m-4 p-3 rounded-[5px]">
+      <%= link_to " 📝Edit User Info?", edit_user_registration_path(current_user), class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer font-bold" %>
+      <%= link_to "↩ Back to Dashboard", dashboard_path, class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer font-bold" %>
+    </div>
+  </div>
+</div>

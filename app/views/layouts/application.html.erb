@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title><%= content_for(:title) || "Journal App" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,13 +18,18 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="h-full box-border m-0 p-0">
+    <div class="flex flex-col items-center justify-center font-[Manrope] text-[1rem]">
+    <p class="notice text-[#4CBB17] bg-white w-full text-center text-[1.2rem] font-bold"><%= notice %></p>
+    <p class="alert text-[#FF0000] bg-white w-full text-center text-[1.2rem] font-bold"><%= alert %></p>
+    </div>
+    <%# <div class="h-auto box-border m-0 p-0"> %>
     <%= yield %>
+    <%# </div> %>
   </body>
 </html>

@@ -1,12 +1,15 @@
-
-  <p>
-    <b><%= f.label "Task title" %></b><br/>
-    <%= f.text_field :task_title %>
+<div class="flex flex-col items-center justify-center text-[1rem] w-[100%] p-2 bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
+  <div class="flex flex-col justify-center">
+  <div class="flex items-end justify-end w-full gap-1">
+    <div><%= f.label "Task title:" %></div>
+    <div class="flex items-end p-1"><%= f.text_field :task_title, class: "border-[2px] rounded-[1px]" %></div>
+  </div>
+  <div class="flex items-end justify-end w-full">
+    <div><%= f.label "Enter task here:" %></div>
+    <div class="flex items-end p-1"><%= f.text_field :task_body, class: "border-[2px] rounded-[1px]" %></div>
+  </div>
+  <p class="self-center justify-self-center">
+    <%= f.submit 'Submit', class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer font-bold" %>
   </p>
-    <p>
-    <b><%= f.label "Enter task here" %></b><br/>
-    <%= f.text_field :task_body %>
-  </p>
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
+  </div>
+</div>

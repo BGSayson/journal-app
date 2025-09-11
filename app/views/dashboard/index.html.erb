@@ -1,9 +1,48 @@
-Hello <%= current_user.username %>
-<% if current_user.categories.count != 0 %>
-<%= render partial: 'categories/category', collection: current_user.categories %>
-<% else %>
-<h2>Your tasks for today:</h2>
-<% end %>
-<%= render partial: 'categories/new' %>
+<div class="bg-gradient-to-t from-orange-400 to-amber-200 font-[Sora] flex flex-col items-center justify-center text-[1.5rem] static min-h-screen mt-auto w-full box-border">
+  <div class="absolute top-0 right-0 flex gap-2 ">
+    <div>
+      <%= link_to "Profile", profile_index_path, class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer font-bold" %>
+    </div>
+    <div>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer font-bold"  %>
+    </div>
+  </div>
+  <div class="flex flex-col items-center justify-center">
+    <div class="text-[#000000] text-[2rem] font-bold">
+      Hello <%= current_user.username %>
+    </div>
+  </div>
+  <div class="flex flex-col items-center justify-center">
+    <% if current_user.categories.count != 0 %>
+      <h2 class="text-center">Your task due:</h2>
+        <div class="flex flex-col items-center justify-between bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] gap-1 min-h-[200px] rounded-[5px] border-[2px] border-black text-[1.5rem] p-2">
+          <h3 class="text-center">
+            <%= current_user.tasks.first.task_title %>
+          </h3> 
+          <div>
+            <%= current_user.tasks.first.task_body %>
+          </div>
+          <div class="flex">
+            <div>
+              <%= current_user.tasks.first.created_at.localtime.to_formatted_s(:short) %>
+            </div>
+            <div>
+              <%= link_to "📝", edit_category_task_path(current_user.tasks.first.category_id, current_user.tasks.first.id), locals: { task_id: current_user.tasks.first.id } %>
+            </div>
+            <div>
+              <%= button_to "x", category_task_path(current_user.tasks.first.category_id, current_user.tasks.first.id), data:{ turbo_method: :delete, turbo_confirm: 'Are you sure?' }, method: :delete %>
+            </div>
+        </div>
 
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+        </div>
+      <div className="test" class="flex flex-wrap justify-center">
+      <%= render partial: 'categories/category', collection: current_user.categories %>
+    <% else %>
+      <h2>Begin and create a category for your tasks!</h2>
+    <% end %>
+    </div>
+  </div>
+  <div class="w-full flex flex-col items-center justify-center">
+  <%= render partial: 'categories/new' %>
+  </div>
+</div>

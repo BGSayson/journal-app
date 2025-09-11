@@ -34,6 +34,12 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
+gem "tailwindcss-rails"
+
+# Use Tailwind CSS [https://github.com/tailwindlabs/tailwindcss-ruby]
+gem "tailwindcss-ruby"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 

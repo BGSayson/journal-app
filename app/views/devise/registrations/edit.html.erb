@@ -1,43 +1,51 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="flex flex-col text-[2rem] items-center justify-center font-[Manrope] bg-gradient-to-bl from-orange-400 to-amber-200 w-full min-h-screen">
+  <div class="bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] border-[2px]rounded-[2px] flex flex-col items-center justify-center p-3">
+    <div>
+      <h2 class="font-bold text-center text-[3rem]">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.label "Email:", class: "font-bold" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border-[2px] rounded-[1px]" %>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="field">
+        <%= f.label "Password:", class: "font-bold" %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "border-[2px] rounded-[1px]" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Password Confirmation:", class: "font-bold" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border-[2px] rounded-[1px]" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Current Password:", class: "font-bold" %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "border-[2px] rounded-[1px]" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer font-bold" %>
+      </div>
     <% end %>
+
+    <div class="flex flex-col">
+      <h3 class="font-bold">Cancel my account</h3>
+
+      <div><%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer font-bold" %></div>
+
+      <%= link_to "Back", :back, class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer font-bold" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>
+</div>

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "dashboard" => "dashboard#index", as: :dashboard
   root "home#index"
 
+  resources :profile, only: [ :index ]
+
   resources :categories do
     resources :tasks
   end

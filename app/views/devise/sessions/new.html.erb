@@ -1,26 +1,34 @@
-<h2>Log in</h2>
+<div class="flex flex-col text-[2.5rem] items-center justify-center font-[Sora] bg-gradient-to-bl from-orange-400 to-amber-200 min-h-screen m-0 mt-auto box-border">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="bg-[#FFFFFF] p-3 rounded-[5px] font-[Manrope] font-bold">
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :login, autofocus: true, autocomplete: "username" %>
+  <h2 class="text-black ">Log in</h2>
+    <%= f.label :username, class: "text-[1.5rem] " %><br />
+    <%= f.text_field :login, autofocus: true, autocomplete: "username", class: "text-[1.5rem] border-[3px] rounded-[3px]" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :password, class: "text-[1.5rem]" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class: "text-[1.5rem] border-[3px] rounded-[3px]" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.check_box :remember_me, class: "w-4 h-4 text-[2rem] " %>
+      <%= f.label :remember_me, class: "hover:underline hover:cursor-pointer text-[1.5rem]" %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer text-[2rem] font-bold" %>
+  </div>
+
+  <div class="flex flex-col items-start justify-center text-[2rem] w-full font-bold">
+    <%= render "devise/shared/links" %>
+  </div>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+</div>
