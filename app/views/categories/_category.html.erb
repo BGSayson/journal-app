@@ -1,7 +1,7 @@
-<div class="flex flex-col m-1 w-[410px] bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] rounded-[5px]min-h-0 ">
-  <div class="flex flex-col min-h-0 w-full rounded-[6px]">
-    <div class="flex items-center justify-between bg-[#f8d300] gap-1 border-[2px] border-black rounded-[5px]" className="categories-wrapper">
-      <h3 class="p-3"><%= category.title %></h3> 
+<div class=" flex flex-col items-center justify-center not-first-of-type:m-1 bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] rounded-[5px] min-h-0 h-full">
+  <div class="flex flex-col min-h-0 max-w-[410px] rounded-[6px] mb-4">
+    <div class="flex items-center justify-between bg-[#f8d300] gap-1 border-[2px] border-black rounded-[5px] min-w-[410px]" className="categories-wrapper">
+      <h3 class="p-3 font-[Sora]"><%= category.title %></h3> 
       <div class="flex justify-between">
         <div class="p-3"><%= link_to "Edit", edit_category_path(category.id), class: "text-[1.2rem]" %></div>
         <div class="p-3"><%= button_to "x", category_path(category.id), data:{ turbo_method: :delete,   turbo_confirm: 'Are you sure?' }, method: :delete, class: "hover:underline hover:cursor-pointer font-bold" %></div>
