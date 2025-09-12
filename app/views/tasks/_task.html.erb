@@ -1,17 +1,23 @@
-<div class=" flex flex-col bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] gap-1 min-h-[200px] p-3 border-[2px] border-black border-t-0 rounded-[5px]">
-  <div class="flex flex-col">
+<div class=" flex flex-col bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] gap-1 p-3 border-[2px] border-black border-t-0 rounded-[5px] wrap-break-word whitespace-break-spaces break-all min-w-0 min-h-0 w-full ">
+  <div class="flex flex-col min-w-0 w-full min-h-0">
     <h3 class="text-center"><%= task.task_title %></h3> 
-    <div><%= task.task_body %></div>
-    <div class="flex">
-      <div>
-        <%= task.created_at.localtime.to_formatted_s(:short) %>
+        <div class="wrap-anywhere whitespace-break-spaces break-all "><%= task.task_body %></div>
+      <div class="flex items-end justify-end">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center justify-between">
+            <div class="text-[1rem]">
+              <%= task.created_at.localtime.to_formatted_s(:short) %>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[1rem]">
+            <div>
+              <%= link_to "📝", edit_category_task_path(category_id, task.id), locals: { task_id: task.id } %>
+            </div>
+            <div>
+              <%= button_to "x", category_task_path(category_id, task.id), data:{ turbo_method: :delete, turbo_confirm: 'Are you sure?' }, method: :delete, class: "hover:text-[#5486e6] hover:underline hover:cursor-pointer" %> 
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <%= link_to "📝", edit_category_task_path(category_id, task.id), locals: { task_id: task.id } %>
-      </div>
-      <div>
-        <%= button_to "Delete", category_task_path(category_id, task.id), data:{ turbo_method: :delete, turbo_confirm: 'Are you sure?' }, method: :delete %> 
-      </div>
-    </div>
   </div>
 </div>

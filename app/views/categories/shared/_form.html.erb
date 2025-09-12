@@ -1,7 +1,8 @@
-<div class="bg-blue-400 p-3 border-[2px] rounded-[1px] flex flex-col items center justify-center bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] gap-1 min-h-[200px] p-3 border-[2px]">
+<div class="bg-white rounded-[1px] flex flex-col items center justify-center bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] gap-1 min-h-[200px] p-3 border-[2px] top-[5px] left-[5px]">
   <p class="flex flex-col items-center justify-center">
-    <%= f.label "Enter category name here" %>
-    <%= f.text_field :title, class: "border-[2px] rounded-[1px]" %>
+
+    <%= f.label "Enter category name:", class: "font-bold" %>
+    <%= f.text_field :title, class: "border-[2px] rounded-[3px] mt-2" %>
   </p>
-    <%= f.submit 'Submit', class: "hover:text-white hover:underline hover:cursor-pointer font-bold " %>
+    <%= f.submit 'Submit', class: "hover:underline hover:cursor-pointer font-bold " %>
 </div>
